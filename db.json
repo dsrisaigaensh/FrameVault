@@ -1,0 +1,198 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "demo@framevault.test",
+      "password": "demo",
+      "name": "Demo Photographer"
+    },
+    {
+      "id": "613c",
+      "name": "sai ganesh",
+      "email": "sai@gmail.com",
+      "password": "1234",
+      "createdAt": "2025-12-04T06:57:41.725Z"
+    }
+  ],
+  "albums": [
+    {
+      "id": "1",
+      "userId": 1,
+      "title": "Wedding at Central Park",
+      "eventDate": "2024-05-15",
+      "createdAt": "2024-05-16"
+    },
+    {
+      "id": "2",
+      "userId": 1,
+      "title": "Birthday Bash 2024",
+      "eventDate": "2024-06-20",
+      "createdAt": "2024-06-21"
+    },
+    {
+      "id": "8954",
+      "userId": "1",
+      "title": "Festival ",
+      "eventDate": "2025-01-12",
+      "createdAt": "2025-12-04"
+    },
+    {
+      "id": "33b1",
+      "userId": "1",
+      "title": "Birthday 2025",
+      "eventDate": "2025-06-20",
+      "createdAt": "2025-12-04"
+    },
+    {
+      "id": "dd88",
+      "userId": "1",
+      "title": "College Photos",
+      "eventDate": "2024-01-23",
+      "createdAt": "2025-12-04"
+    },
+    {
+      "id": "bdb8",
+      "userId": "1",
+      "title": "College Fest",
+      "eventDate": "2025-03-13",
+      "createdAt": "2025-12-04"
+    },
+    {
+      "id": "6a26",
+      "userId": "1",
+      "title": "Friend Birthday",
+      "eventDate": "2025-11-22",
+      "createdAt": "2025-12-04"
+    },
+    {
+      "id": "a8aa",
+      "userId": "613c",
+      "title": "Birthday",
+      "eventDate": "0025-11-22",
+      "createdAt": "2025-12-04"
+    }
+  ],
+  "photos": [
+    {
+      "id": "1",
+      "albumId": 1,
+      "url": "https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "caption": "Ceremony moment",
+      "uploadedAt": "2024-05-16"
+    },
+    {
+      "id": "2",
+      "albumId": 1,
+      "url": "https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "caption": "Beautiful couple",
+      "uploadedAt": "2024-05-16"
+    },
+    {
+      "id": "3",
+      "albumId": 1,
+      "url": "https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "caption": "Reception",
+      "uploadedAt": "2024-05-16"
+    },
+    {
+      "id": "4",
+      "albumId": 2,
+      "url": "https://images.pexels.com/photos/1729797/pexels-photo-1729797.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "caption": "Birthday cake",
+      "uploadedAt": "2024-06-21"
+    },
+    {
+      "id": "5",
+      "albumId": 2,
+      "url": "https://images.pexels.com/photos/1395964/pexels-photo-1395964.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "caption": "Party decorations",
+      "uploadedAt": "2024-06-21"
+    },
+    {
+      "id": "f4c6",
+      "albumId": 8954,
+      "url": "blob:http://localhost:5173/a2d224d2-0851-4fa8-b8ae-f3d6066bbcb8",
+      "caption": "Holy",
+      "uploadedAt": "2025-12-04"
+    }
+  ],
+  "shares": [
+    {
+      "id": "1",
+      "albumId": 1,
+      "token": "abc123xyz",
+      "createdAt": "2024-05-16",
+      "expiresAt": "2025-05-16"
+    },
+    {
+      "id": "2",
+      "albumId": 2,
+      "token": "party2024",
+      "createdAt": "2024-06-21",
+      "expiresAt": "2025-06-21"
+    },
+    {
+      "id": "b25c",
+      "albumId": 8954,
+      "token": "xaqy0d3aaal",
+      "createdAt": "2025-12-04",
+      "expiresAt": "2026-12-04"
+    },
+    {
+      "id": "6b7d",
+      "albumId": 1,
+      "token": "4hltj3w9xmr",
+      "createdAt": "2025-12-04",
+      "expiresAt": "2026-12-04"
+    },
+    {
+      "id": "42de",
+      "albumId": 1,
+      "token": "na48jpqvmvb",
+      "createdAt": "2025-12-04",
+      "expiresAt": "2026-12-04"
+    },
+    {
+      "id": "efa4",
+      "albumId": 2,
+      "token": "l8z1igyakdo",
+      "createdAt": "2025-12-04",
+      "expiresAt": "2026-12-04"
+    },
+    {
+      "id": "c1b0",
+      "albumId": 1,
+      "token": "rfxyrio1ppr",
+      "createdAt": "2025-12-04",
+      "expiresAt": "2026-12-04"
+    },
+    {
+      "id": "3a34",
+      "albumId": 1,
+      "token": "a3z9549mbeo",
+      "createdAt": "2025-12-04",
+      "expiresAt": "2026-12-04"
+    },
+    {
+      "id": "0825",
+      "albumId": 8954,
+      "token": "tg8k3b1fbpo",
+      "createdAt": "2025-12-04",
+      "expiresAt": "2026-12-04"
+    },
+    {
+      "id": "6bfa",
+      "albumId": 8954,
+      "token": "ogcrgmp99lg",
+      "createdAt": "2025-12-04",
+      "expiresAt": "2026-12-04"
+    },
+    {
+      "id": "f823",
+      "albumId": 2,
+      "token": "egqmu1xgprk",
+      "createdAt": "2025-12-04",
+      "expiresAt": "2026-12-04"
+    }
+  ]
+}
