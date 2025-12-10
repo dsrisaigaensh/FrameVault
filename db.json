@@ -16,13 +16,6 @@
   ],
   "albums": [
     {
-      "id": "1",
-      "userId": 1,
-      "title": "Wedding at Central Park",
-      "eventDate": "2024-05-15",
-      "createdAt": "2024-05-16"
-    },
-    {
       "id": "2",
       "userId": 1,
       "title": "Birthday Bash 2024",
@@ -109,11 +102,11 @@
       "uploadedAt": "2024-06-21"
     },
     {
-      "id": "f4c6",
-      "albumId": 8954,
-      "url": "blob:http://localhost:5173/a2d224d2-0851-4fa8-b8ae-f3d6066bbcb8",
-      "caption": "Holy",
-      "uploadedAt": "2025-12-04"
+      "id": "7cda",
+      "albumId": 1,
+      "url": "blob:http://localhost:5173/ea1adabb-0f1a-4aaa-bede-1d7bbf1f4b83",
+      "caption": "holy",
+      "uploadedAt": "2025-12-05"
     }
   ],
   "shares": [
@@ -193,6 +186,27 @@
       "token": "egqmu1xgprk",
       "createdAt": "2025-12-04",
       "expiresAt": "2026-12-04"
+    },
+    {
+      "id": "9c3f",
+      "albumId": 2,
+      "token": "h2ffcy2kuul",
+      "createdAt": "2025-12-04",
+      "expiresAt": "2026-12-04"
+    },
+    {
+      "id": "2609",
+      "albumId": 2,
+      "token": "6ns40im01al",
+      "createdAt": "2025-12-05",
+      "expiresAt": "2026-12-05"
+    },
+    {
+      "id": "4371",
+      "albumId": 1,
+      "token": "br773ywi6zf",
+      "createdAt": "2025-12-05",
+      "expiresAt": "2026-12-05"
     }
   ]
 }

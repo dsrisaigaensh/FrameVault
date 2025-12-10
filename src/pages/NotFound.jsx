@@ -9,7 +9,7 @@ function NotFound() {
         <h1 style={styles.title}>404</h1>
         <h2 style={styles.subtitle}>Page Not Found</h2>
         <p style={styles.message}>
-          The page you're looking for doesn't exist.
+          The page you&apos;re looking for doesn&apos;t exist.
         </p>
         <button style={styles.button} onClick={() => navigate('/')}>
           Go Home
