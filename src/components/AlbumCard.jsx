@@ -1,89 +1,67 @@
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function AlbumCard({ album, onDelete }) {
+const gradients = [
+  'from-pink-400 via-purple-400 to-indigo-400',
+  'from-green-400 via-blue-400 to-purple-400',
+  'from-yellow-400 via-orange-400 to-red-400',
+  'from-cyan-400 via-blue-400 to-purple-400',
+  'from-rose-400 via-pink-400 to-purple-400',
+  'from-emerald-400 via-teal-400 to-cyan-400',
+];
+
+const backgroundColors = [
+  'bg-pink-50',
+  'bg-blue-50',
+  'bg-yellow-50',
+  'bg-purple-50',
+  'bg-green-50',
+  'bg-orange-50',
+];
+
+function AlbumCard({ album, onDelete, index = 0 }) {
   const navigate = useNavigate();
+  const gradientClass = gradients[index % gradients.length];
+  const bgColorClass = backgroundColors[index % backgroundColors.length];
 
   return (
-    <div style={styles.card}>
-      <div style={styles.content}>
-        <h3 style={styles.title}>{album.title}</h3>
-        <p style={styles.date}>Event Date: {album.eventDate}</p>
-        <p style={styles.created}>Created: {album.createdAt}</p>
-      </div>
-      <div style={styles.actions}>
-        <button
-          style={styles.viewBtn}
-          onClick={() => navigate(`/album/${album.id}`)}
-        >
-          View Album
-        </button>
-        {onDelete && (
+    <div className={`bg-gradient-to-br ${gradientClass} p-1 rounded-3xl shadow-2xl hover:shadow-purple-500/50 transform hover:-translate-y-3 hover:scale-105 transition-all duration-300`}>
+      <div className={`${bgColorClass} backdrop-blur-sm rounded-3xl p-8`}>
+        <div className="mb-8">
+          <h3 className="text-3xl font-black text-gray-800 mb-4">{album.title}</h3>
+          <p className="text-gray-600 font-semibold text-lg">📅 Event Date: {album.eventDate}</p>
+          <p className="text-gray-500 text-base">✨ Created: {album.createdAt}</p>
+        </div>
+        <div className="flex gap-4">
           <button
-            style={styles.deleteBtn}
-            onClick={() => onDelete(album.id)}
+            onClick={() => navigate(`/album/${album.id}`)}
+            className="flex-1 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold text-lg rounded-xl hover:scale-105 transition-all shadow-lg"
           >
-            Delete
+            👁️ View Album
           </button>
-        )}
+          {onDelete && (
+            <button
+              onClick={() => onDelete(album.id)}
+              className="px-6 py-4 bg-gradient-to-r from-red-500 to-pink-600 text-white font-bold text-lg rounded-xl hover:scale-105 transition-all shadow-lg"
+            >
+              🗑️ Delete
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
 }
 
-const styles = {
-  card: {
-    backgroundColor: '#fff',
-    border: '1px solid #e5e7eb',
-    borderRadius: '0.75rem',
-    padding: '2rem',
-    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-    transition: 'all 0.2s',
-    cursor: 'pointer',
-  },
-  content: {
-    marginBottom: '1.5rem',
-  },
-  title: {
-    fontSize: '1.5rem',
-    fontWeight: '600',
-    color: '#1f2937',
-    marginBottom: '0.75rem',
-  },
-  date: {
-    color: '#6b7280',
-    fontSize: '1rem',
-    marginBottom: '0.5rem',
-  },
-  created: {
-    color: '#9ca3af',
-    fontSize: '0.95rem',
-  },
-  actions: {
-    display: 'flex',
-    gap: '0.75rem',
-  },
-  viewBtn: {
-    flex: 1,
-    padding: '0.75rem 1.25rem',
-    backgroundColor: '#2563eb',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '0.5rem',
-    cursor: 'pointer',
-    fontSize: '1rem',
-    fontWeight: '500',
-  },
-  deleteBtn: {
-    padding: '0.75rem 1.25rem',
-    backgroundColor: '#dc2626',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '0.5rem',
-    cursor: 'pointer',
-    fontSize: '1rem',
-    fontWeight: '500',
-  },
+AlbumCard.propTypes = {
+  album: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    eventDate: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+  }).isRequired,
+  onDelete: PropTypes.func,
+  index: PropTypes.number,
 };
 
 AlbumCard.propTypes = {

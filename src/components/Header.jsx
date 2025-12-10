@@ -10,16 +10,27 @@ function Header() {
   };
 
   return (
-    <header style={styles.header}>
-      <div style={styles.container}>
-        <h1 style={styles.logo} onClick={() => navigate('/dashboard')}>
-          📸 FrameVault
+    <header className="glass-effect sticky top-0 z-50 border-b border-white/30 mb-8">
+      <div className="w-full px-6 py-4 flex justify-between items-center">
+        <h1 
+          onClick={() => navigate('/dashboard')}
+          className="text-4xl font-black cursor-pointer hover:scale-110 transition-all duration-300 flex items-center gap-2"
+        >
+          <span className="text-5xl animate-pulse-slow">📸</span>
+          <span className="bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 bg-clip-text text-transparent drop-shadow-lg">
+            FrameVault
+          </span>
         </h1>
         {user.name && (
-          <div style={styles.userSection}>
-            <span style={styles.userName}>{user.name}</span>
-            <button style={styles.logoutBtn} onClick={handleLogout}>
-              Logout
+          <div className="flex items-center gap-4">
+            <span className="px-6 py-3 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 backdrop-blur-md border-2 border-white/40 rounded-xl text-white font-bold text-lg shadow-lg hover:scale-105 transition-all duration-300">
+              👤 {user.name}
+            </span>
+            <button 
+              onClick={handleLogout}
+              className="px-6 py-3 bg-gradient-to-r from-red-500 via-pink-500 to-rose-600 text-white font-bold text-lg rounded-xl hover:scale-110 transition-all duration-300 shadow-xl hover:shadow-red-500/50 border-2 border-white/40"
+            >
+              🚪 Logout
             </button>
           </div>
         )}
@@ -27,48 +38,5 @@ function Header() {
     </header>
   );
 }
-
-const styles = {
-  header: {
-    backgroundColor: '#bfdbfe',
-    borderBottom: '1px solid #e5e7eb',
-    padding: '1rem 0',
-    marginBottom: '2rem',
-    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-  },
-  container: {
-    maxWidth: '1400px',
-    margin: '0 auto',
-    padding: '0 1.5rem',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  logo: {
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-    color: '#1f2937',
-    cursor: 'pointer',
-    margin: 0,
-  },
-  userSection: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '1rem',
-  },
-  userName: {
-    color: '#4b5563',
-    fontSize: '0.95rem',
-  },
-  logoutBtn: {
-    padding: '0.5rem 1rem',
-    backgroundColor: '#ef4444',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '0.5rem',
-    cursor: 'pointer',
-    fontSize: '0.9rem',
-  },
-};
 
 export default Header;

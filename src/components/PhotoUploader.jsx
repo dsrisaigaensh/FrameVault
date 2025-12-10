@@ -43,21 +43,29 @@ function PhotoUploader({ albumId, onPhotoAdded }) {
   };
 
   return (
-    <div style={styles.container}>
-      <h3 style={styles.title}>Upload New Photo</h3>
+    <div className="glass-effect rounded-3xl p-8 mb-8 border-4 border-white/40 shadow-2xl hover:shadow-blue-500/30 transition-all duration-300">
+      <h3 className="text-3xl font-black mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent flex items-center gap-2">
+        <span>📤</span> Upload New Photo
+      </h3>
 
-      <div style={styles.uploadBox}>
-        <input
-          id="fileInput"
-          type="file"
-          accept="image/*"
-          onChange={handleFileChange}
-          style={styles.fileInput}
-        />
+      <div className="flex flex-col gap-5">
+        <div className="relative">
+          <input
+            id="fileInput"
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="w-full px-4 py-3 bg-white/90 border-3 border-purple-300 rounded-xl text-gray-800 font-semibold text-lg cursor-pointer hover:bg-white transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-purple-400/50 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-gradient-to-r file:from-purple-500 file:to-pink-500 file:text-white file:font-bold file:cursor-pointer hover:file:scale-105"
+          />
+        </div>
 
         {preview && (
-          <div style={styles.previewContainer}>
-            <img src={preview} alt="Preview" style={styles.preview} />
+          <div className="w-full max-w-md mx-auto animate-float">
+            <img 
+              src={preview} 
+              alt="Preview" 
+              className="w-full h-64 object-cover rounded-2xl border-4 border-white/60 shadow-xl hover:scale-105 transition-all duration-300"
+            />
           </div>
         )}
 
@@ -66,81 +74,25 @@ function PhotoUploader({ albumId, onPhotoAdded }) {
           placeholder="Add a caption (optional)"
           value={caption}
           onChange={(e) => setCaption(e.target.value)}
-          style={styles.captionInput}
+          className="px-4 py-3 bg-white/90 border-3 border-blue-300 rounded-xl text-gray-800 font-semibold text-lg focus:outline-none focus:ring-4 focus:ring-blue-400/50 focus:border-blue-400 transition-all duration-300 placeholder:text-gray-400"
         />
 
         <button
           onClick={handleUpload}
           disabled={uploading || !preview}
-          style={{
-            ...styles.uploadBtn,
-            opacity: uploading || !preview ? 0.5 : 1,
-            cursor: uploading || !preview ? 'not-allowed' : 'pointer',
-          }}
+          className={`px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-bold text-xl rounded-2xl transition-all duration-300 shadow-xl flex items-center justify-center gap-2 ${
+            uploading || !preview 
+              ? 'opacity-50 cursor-not-allowed' 
+              : 'hover:scale-105 hover:shadow-purple-500/50'
+          }`}
         >
+          <span>{uploading ? '⏳' : '🚀'}</span>
           {uploading ? 'Uploading...' : 'Upload Photo'}
         </button>
       </div>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    backgroundColor: '#f9fafb',
-    border: '1px solid #e5e7eb',
-    borderRadius: '0.75rem',
-    padding: '2rem',
-    marginBottom: '2.5rem',
-  },
-  title: {
-    fontSize: '1.35rem',
-    fontWeight: '600',
-    color: '#1f2937',
-    marginBottom: '1.25rem',
-  },
-  uploadBox: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1.25rem',
-  },
-  fileInput: {
-    padding: '0.75rem',
-    border: '1px solid #d1d5db',
-    borderRadius: '0.5rem',
-    backgroundColor: '#fff',
-    cursor: 'pointer',
-    fontSize: '1rem',
-  },
-  previewContainer: {
-    width: '100%',
-    maxWidth: '350px',
-    margin: '0 auto',
-  },
-  preview: {
-    width: '100%',
-    height: '240px',
-    objectFit: 'cover',
-    borderRadius: '0.5rem',
-    border: '2px solid #e5e7eb',
-  },
-  captionInput: {
-    padding: '0.875rem',
-    border: '1px solid #d1d5db',
-    borderRadius: '0.5rem',
-    fontSize: '1.05rem',
-    outline: 'none',
-  },
-  uploadBtn: {
-    padding: '0.875rem 1.75rem',
-    backgroundColor: '#2563eb',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '0.5rem',
-    fontSize: '1.1rem',
-    fontWeight: '500',
-  },
-};
 
 PhotoUploader.propTypes = {
   albumId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,

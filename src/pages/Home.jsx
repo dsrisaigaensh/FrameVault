@@ -4,16 +4,27 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div style={styles.container}>
+    <div className="min-h-screen">
       {/* Header */}
-      <header style={styles.header}>
-        <div style={styles.headerContent}>
-          <h1 style={styles.logo}>📸 FrameVault</h1>
-          <div style={styles.authButtons}>
-            <button style={styles.loginBtn} onClick={() => navigate('/login')}>
+      <header className="glass-effect sticky top-0 z-50 border-b border-white/30">
+        <div className="w-full px-6 py-4 flex justify-between items-center">
+          <h1 className="text-3xl font-bold text-white flex items-center gap-2 drop-shadow-lg">
+            <span className="text-4xl animate-pulse-slow">📸</span>
+            <span className="gradient-text bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
+              FrameVault
+            </span>
+          </h1>
+          <div className="flex gap-4">
+            <button 
+              onClick={() => navigate('/login')}
+              className="px-6 py-2.5 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 text-white border-2 border-white/40 rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
+            >
               Login
             </button>
-            <button style={styles.signupBtn} onClick={() => navigate('/signup')}>
+            <button 
+              onClick={() => navigate('/signup')}
+              className="px-6 py-2.5 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white border-2 border-white/40 rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
+            >
               Sign Up
             </button>
           </div>
@@ -21,69 +32,79 @@ function Home() {
       </header>
 
       {/* Hero Section */}
-      <section style={styles.hero}>
-        <div style={styles.heroContent}>
-          <h2 style={styles.heroTitle}>
-            Your Memories, Beautifully Organized
+      <section className="py-40 px-6 min-h-[85vh] flex items-center">
+        <div className="max-w-6xl mx-auto text-center w-full">
+          <h2 className="text-8xl md:text-9xl font-black mb-12 leading-tight flex flex-col items-center">
+            <span className="inline-block animate-float text-white drop-shadow-2xl">
+              Your Memories,
+            </span>
+            <span className="bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 bg-clip-text text-transparent drop-shadow-lg whitespace-nowrap">
+              Beautifully Organized
+            </span>
           </h2>
-          <p style={styles.heroSubtitle}>
+          <p className="text-3xl text-white/90 mb-16 leading-relaxed max-w-4xl mx-auto drop-shadow-lg font-medium">
             FrameVault is the perfect platform to store, organize, and share your special moments. 
             Create beautiful photo albums for weddings, birthdays, travel, and all life&apos;s precious events.
           </p>
-          <button style={styles.ctaButton} onClick={() => navigate('/signup')}>
-            Get Started Free
+          <button 
+            onClick={() => navigate('/signup')}
+            className="px-16 py-6 text-2xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white rounded-3xl hover:scale-110 transition-all duration-300 shadow-2xl hover:shadow-pink-500/50 border-4 border-white/30 backdrop-blur-sm"
+          >
+            🚀 Get Started Free
           </button>
         </div>
       </section>
 
       {/* Features Section */}
-      <section style={styles.features}>
-        <h3 style={styles.featuresTitle}>Why Choose FrameVault?</h3>
-        <div style={styles.featuresGrid}>
-          <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>📁</div>
-            <h4 style={styles.featureTitle}>Organize Albums</h4>
-            <p style={styles.featureText}>
+      <section className="py-20 px-6">
+        <h3 className="text-5xl font-black text-center mb-16 text-white drop-shadow-2xl">
+          ✨ Why Choose FrameVault? ✨
+        </h3>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="glass-effect p-8 rounded-3xl card-hover group">
+            <div className="text-6xl mb-4 group-hover:scale-125 transition-transform duration-300">📁</div>
+            <h4 className="text-2xl font-bold text-white mb-3">Organize Albums</h4>
+            <p className="text-white/80 text-lg leading-relaxed">
               Create unlimited albums to organize your photos by events, dates, or themes.
             </p>
           </div>
 
-          <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>🔗</div>
-            <h4 style={styles.featureTitle}>Easy Sharing</h4>
-            <p style={styles.featureText}>
+          <div className="glass-effect p-8 rounded-3xl card-hover group bg-gradient-to-br from-pink-500/20 to-purple-500/20">
+            <div className="text-6xl mb-4 group-hover:scale-125 transition-transform duration-300">🔗</div>
+            <h4 className="text-2xl font-bold text-white mb-3">Easy Sharing</h4>
+            <p className="text-white/80 text-lg leading-relaxed">
               Generate shareable links to let friends and family view your albums instantly.
             </p>
           </div>
 
-          <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>🖼️</div>
-            <h4 style={styles.featureTitle}>Beautiful Gallery</h4>
-            <p style={styles.featureText}>
+          <div className="glass-effect p-8 rounded-3xl card-hover group bg-gradient-to-br from-blue-500/20 to-cyan-500/20">
+            <div className="text-6xl mb-4 group-hover:scale-125 transition-transform duration-300">🖼️</div>
+            <h4 className="text-2xl font-bold text-white mb-3">Beautiful Gallery</h4>
+            <p className="text-white/80 text-lg leading-relaxed">
               Display your photos in an elegant, responsive gallery that looks great everywhere.
             </p>
           </div>
 
-          <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>🔒</div>
-            <h4 style={styles.featureTitle}>Secure & Private</h4>
-            <p style={styles.featureText}>
+          <div className="glass-effect p-8 rounded-3xl card-hover group bg-gradient-to-br from-purple-500/20 to-indigo-500/20">
+            <div className="text-6xl mb-4 group-hover:scale-125 transition-transform duration-300">🔒</div>
+            <h4 className="text-2xl font-bold text-white mb-3">Secure & Private</h4>
+            <p className="text-white/80 text-lg leading-relaxed">
               Your photos are safe with us. Control who can view your albums with secure sharing.
             </p>
           </div>
 
-          <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>📅</div>
-            <h4 style={styles.featureTitle}>Event-Based Organization</h4>
-            <p style={styles.featureText}>
+          <div className="glass-effect p-8 rounded-3xl card-hover group bg-gradient-to-br from-orange-500/20 to-yellow-500/20">
+            <div className="text-6xl mb-4 group-hover:scale-125 transition-transform duration-300">📅</div>
+            <h4 className="text-2xl font-bold text-white mb-3">Event-Based Organization</h4>
+            <p className="text-white/80 text-lg leading-relaxed">
               Tag albums with event dates and keep your memories organized chronologically for easy browsing.
             </p>
           </div>
 
-          <div style={styles.featureCard}>
-            <div style={styles.featureIcon}>💬</div>
-            <h4 style={styles.featureTitle}>Photo Captions</h4>
-            <p style={styles.featureText}>
+          <div className="glass-effect p-8 rounded-3xl card-hover group bg-gradient-to-br from-green-500/20 to-emerald-500/20">
+            <div className="text-6xl mb-4 group-hover:scale-125 transition-transform duration-300">💬</div>
+            <h4 className="text-2xl font-bold text-white mb-3">Photo Captions</h4>
+            <p className="text-white/80 text-lg leading-relaxed">
               Add meaningful captions to your photos to tell the story behind each special moment.
             </p>
           </div>
@@ -91,16 +112,18 @@ function Home() {
       </section>
 
       {/* About Section */}
-      <section style={styles.about}>
-        <div style={styles.aboutContent}>
-          <h3 style={styles.aboutTitle}>About FrameVault</h3>
-          <p style={styles.aboutText}>
+      <section className="py-32 px-6">
+        <div className="max-w-6xl mx-auto glass-effect p-16 rounded-3xl">
+          <h3 className="text-6xl font-black text-center mb-12 text-white drop-shadow-lg">
+            🎨 About FrameVault
+          </h3>
+          <p className="text-2xl text-white/90 mb-8 leading-relaxed">
             FrameVault was created with one goal in mind: to make photo sharing and organization 
             simple and beautiful. Whether you&apos;re a professional photographer managing client galleries 
             or someone who loves capturing life&apos;s moments, FrameVault provides the tools you need 
             to showcase your memories in style.
           </p>
-          <p style={styles.aboutText}>
+          <p className="text-2xl text-white/90 leading-relaxed">
             With intuitive album creation, drag-and-drop uploads, and instant sharing capabilities, 
             preserving and sharing your favorite moments has never been easier. Join thousands of 
             users who trust FrameVault to keep their memories safe and accessible.
@@ -109,176 +132,13 @@ function Home() {
       </section>
 
       {/* Footer */}
-      <footer style={styles.footer}>
-        <p style={styles.footerText}>
+      <footer className="glass-effect border-t border-white/30 py-8">
+        <p className="text-center text-white/80 text-lg font-semibold">
           © 2025 FrameVault. All rights reserved.
         </p>
       </footer>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    backgroundColor: '#e0f2fe',
-  },
-  header: {
-    backgroundColor: '#fff',
-    borderBottom: '1px solid #e5e7eb',
-    padding: '1rem 0',
-    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-  },
-  headerContent: {
-    maxWidth: '1400px',
-    margin: '0 auto',
-    padding: '0 1.5rem',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  logo: {
-    fontSize: '1.75rem',
-    fontWeight: 'bold',
-    color: '#1f2937',
-    margin: 0,
-  },
-  authButtons: {
-    display: 'flex',
-    gap: '1rem',
-  },
-  loginBtn: {
-    padding: '0.625rem 1.5rem',
-    backgroundColor: 'transparent',
-    color: '#2563eb',
-    border: '2px solid #2563eb',
-    borderRadius: '0.5rem',
-    cursor: 'pointer',
-    fontSize: '1rem',
-    fontWeight: '500',
-    transition: 'all 0.2s',
-  },
-  signupBtn: {
-    padding: '0.625rem 1.5rem',
-    backgroundColor: '#2563eb',
-    color: '#fff',
-    border: '2px solid #2563eb',
-    borderRadius: '0.5rem',
-    cursor: 'pointer',
-    fontSize: '1rem',
-    fontWeight: '500',
-    transition: 'all 0.2s',
-  },
-  hero: {
-    backgroundColor: '#e0f2fe',
-    padding: '6rem 1.5rem',
-    textAlign: 'center',
-  },
-  heroContent: {
-    maxWidth: '900px',
-    margin: '0 auto',
-  },
-  heroTitle: {
-    fontSize: '3.5rem',
-    fontWeight: 'bold',
-    color: '#1f2937',
-    marginBottom: '1.5rem',
-    lineHeight: 1.2,
-  },
-  heroSubtitle: {
-    fontSize: '1.35rem',
-    color: '#4b5563',
-    marginBottom: '2.5rem',
-    lineHeight: 1.6,
-  },
-  ctaButton: {
-    padding: '1rem 2.5rem',
-    backgroundColor: '#2563eb',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '0.5rem',
-    cursor: 'pointer',
-    fontSize: '1.2rem',
-    fontWeight: '600',
-    boxShadow: '0 4px 6px rgba(37, 99, 235, 0.3)',
-    transition: 'all 0.2s',
-  },
-  features: {
-    padding: '5rem 1.5rem',
-    backgroundColor: '#e0f2fe',
-  },
-  featuresTitle: {
-    fontSize: '2.5rem',
-    fontWeight: 'bold',
-    color: '#1f2937',
-    textAlign: 'center',
-    marginBottom: '3rem',
-  },
-  featuresGrid: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-    gap: '2rem',
-  },
-  featureCard: {
-    backgroundColor: '#f9fafb',
-    padding: '2.5rem',
-    borderRadius: '1rem',
-    textAlign: 'center',
-    border: '1px solid #e5e7eb',
-    transition: 'all 0.2s',
-  },
-  featureIcon: {
-    fontSize: '3.5rem',
-    marginBottom: '1.5rem',
-  },
-  featureTitle: {
-    fontSize: '1.5rem',
-    fontWeight: '600',
-    color: '#1f2937',
-    marginBottom: '1rem',
-  },
-  featureText: {
-    fontSize: '1.05rem',
-    color: '#6b7280',
-    lineHeight: 1.6,
-  },
-  about: {
-    padding: '5rem 1.5rem',
-    backgroundColor: '#e0f2fe',
-  },
-  aboutContent: {
-    maxWidth: '900px',
-    margin: '0 auto',
-  },
-  aboutTitle: {
-    fontSize: '2.5rem',
-    fontWeight: 'bold',
-    color: '#1f2937',
-    marginBottom: '2rem',
-    textAlign: 'center',
-  },
-  aboutText: {
-    fontSize: '1.15rem',
-    color: '#4b5563',
-    lineHeight: 1.8,
-    marginBottom: '1.5rem',
-    textAlign: 'center',
-  },
-  footer: {
-    backgroundColor: '#1f2937',
-    padding: '2rem 1.5rem',
-    marginTop: 'auto',
-  },
-  footerText: {
-    fontSize: '1rem',
-    color: '#9ca3af',
-    textAlign: 'center',
-    margin: 0,
-  },
-};
 
 export default Home;

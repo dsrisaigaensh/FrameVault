@@ -63,68 +63,88 @@ function Signup() {
   };
 
   return (
-    <div style={styles.container}>
-      <div style={styles.card}>
-        <h1 style={styles.logo}>📸 FrameVault</h1>
-        <p style={styles.subtitle}>Create your account</p>
+    <div className="min-h-screen flex items-center justify-center p-6">
+      <div className="glass-effect w-full max-w-xl p-10 rounded-3xl shadow-2xl">
+        <div className="text-center mb-8">
+          <h1 className="text-5xl font-black mb-3">
+            <span className="text-6xl animate-pulse-slow">📸</span>
+            <br />
+            <span className="bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 bg-clip-text text-transparent drop-shadow-lg">
+              FrameVault
+            </span>
+          </h1>
+          <p className="text-xl text-white/90 font-semibold">Create your account</p>
+        </div>
 
-        <form onSubmit={handleSignup} style={styles.form}>
-          <div style={styles.inputGroup}>
-            <label style={styles.label}>Name</label>
+        <form onSubmit={handleSignup} className="space-y-5">
+          <div>
+            <label className="block text-white font-bold mb-2 text-lg">Name</label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              style={styles.input}
+              className="w-full px-4 py-3 bg-white/20 backdrop-blur-md border-2 border-white/40 rounded-xl text-white placeholder-white/60 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-300 transition-all text-lg"
               required
+              placeholder="Enter your name"
             />
           </div>
 
-          <div style={styles.inputGroup}>
-            <label style={styles.label}>Email</label>
+          <div>
+            <label className="block text-white font-bold mb-2 text-lg">Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              style={styles.input}
+              className="w-full px-4 py-3 bg-white/20 backdrop-blur-md border-2 border-white/40 rounded-xl text-white placeholder-white/60 focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-300 transition-all text-lg"
               required
+              placeholder="Enter your email"
             />
           </div>
 
-          <div style={styles.inputGroup}>
-            <label style={styles.label}>Password</label>
+          <div>
+            <label className="block text-white font-bold mb-2 text-lg">Password</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              style={styles.input}
+              className="w-full px-4 py-3 bg-white/20 backdrop-blur-md border-2 border-white/40 rounded-xl text-white placeholder-white/60 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-300 transition-all text-lg"
               required
+              placeholder="Create a password"
             />
           </div>
 
-          <div style={styles.inputGroup}>
-            <label style={styles.label}>Confirm Password</label>
+          <div>
+            <label className="block text-white font-bold mb-2 text-lg">Confirm Password</label>
             <input
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              style={styles.input}
+              className="w-full px-4 py-3 bg-white/20 backdrop-blur-md border-2 border-white/40 rounded-xl text-white placeholder-white/60 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-300 transition-all text-lg"
               required
+              placeholder="Confirm your password"
             />
           </div>
 
-          {error && <p style={styles.error}>{error}</p>}
+          {error && (
+            <p className="bg-red-500/20 border-2 border-red-400 text-white px-4 py-3 rounded-xl text-center font-semibold">
+              {error}
+            </p>
+          )}
 
-          <button type="submit" style={styles.button} disabled={loading}>
-            {loading ? 'Creating account...' : 'Sign Up'}
+          <button 
+            type="submit" 
+            disabled={loading}
+            className="w-full py-4 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white font-bold text-xl rounded-xl hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed border-2 border-white/40"
+          >
+            {loading ? '🔄 Creating account...' : '🚀 Sign Up'}
           </button>
         </form>
 
-        <div style={styles.loginLink}>
-          <p style={styles.loginText}>
+        <div className="mt-6 text-center">
+          <p className="text-white/90 text-lg">
             Already have an account?{' '}
             <span 
-              style={styles.link} 
+              className="text-yellow-300 font-bold cursor-pointer hover:text-yellow-200 hover:underline transition-all"
               onClick={() => navigate('/login')}
             >
               Login here
@@ -132,10 +152,10 @@ function Signup() {
           </p>
         </div>
         
-        <div style={styles.homeLink}>
+        <div className="mt-6 text-center">
           <button 
-            style={styles.homeButton}
             onClick={() => navigate('/')}
+            className="px-6 py-3 bg-white/20 backdrop-blur-md border-2 border-white/40 rounded-xl text-white font-semibold hover:bg-white/30 hover:scale-105 transition-all duration-300 shadow-lg"
           >
             ← Back to Home
           </button>
@@ -144,102 +164,5 @@ function Signup() {
     </div>
   );
 }
-
-const styles = {
-  container: {
-    minHeight: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#e0f2fe',
-    padding: '1rem',
-  },
-  card: {
-    backgroundColor: '#fff',
-    borderRadius: '1rem',
-    padding: '2.5rem',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    width: '100%',
-    maxWidth: '500px',
-  },
-  logo: {
-    fontSize: '2rem',
-    fontWeight: 'bold',
-    color: '#2563eb',
-    textAlign: 'center',
-    marginBottom: '0.5rem',
-  },
-  subtitle: {
-    textAlign: 'center',
-    color: '#6b7280',
-    marginBottom: '2rem',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1.5rem',
-  },
-  inputGroup: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '0.5rem',
-  },
-  label: {
-    fontSize: '0.9rem',
-    fontWeight: '500',
-    color: '#374151',
-  },
-  input: {
-    padding: '0.75rem',
-    border: '1px solid #d1d5db',
-    borderRadius: '0.5rem',
-    fontSize: '1rem',
-    outline: 'none',
-  },
-  button: {
-    padding: '0.875rem',
-    backgroundColor: '#2563eb',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '0.5rem',
-    fontSize: '1rem',
-    fontWeight: '600',
-    cursor: 'pointer',
-  },
-  error: {
-    color: '#dc2626',
-    fontSize: '0.9rem',
-    textAlign: 'center',
-    margin: 0,
-  },
-  loginLink: {
-    marginTop: '2rem',
-    textAlign: 'center',
-  },
-  loginText: {
-    fontSize: '0.9rem',
-    color: '#6b7280',
-  },
-  link: {
-    color: '#2563eb',
-    fontWeight: '600',
-    cursor: 'pointer',
-    textDecoration: 'underline',
-  },
-  homeLink: {
-    marginTop: '1rem',
-    textAlign: 'center',
-  },
-  homeButton: {
-    padding: '0.75rem 1.5rem',
-    backgroundColor: '#f3f4f6',
-    color: '#4b5563',
-    border: '1px solid #d1d5db',
-    borderRadius: '0.5rem',
-    cursor: 'pointer',
-    fontSize: '0.95rem',
-    fontWeight: '500',
-  },
-};
 
 export default Signup;
